@@ -360,10 +360,6 @@ To convert Twig templates to static HTML:
 - Check TailwindCSS config
 - Verify CSS file paths
 
-## 📄 License
-
-MIT
-
 ## 🙏 Credits
 
 - Original React design and functionality
