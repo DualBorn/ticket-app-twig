@@ -4,6 +4,8 @@ A complete ticket management system built with Twig templates, vanilla JavaScrip
 
 This is a Twig template implementation of the TicketApp, designed to replicate the functionality and design of the React/Vue versions using server-side templating and vanilla JavaScript.
 
+🌐 **Live Demo:** [https://ticket-management-app-twig.netlify.app/](https://ticket-management-app-twig.netlify.app/)
+
 ## 🎨 Features
 
 - **Modern UI**: Beautiful, responsive design with TailwindCSS
