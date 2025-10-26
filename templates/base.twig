@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}TicketApp - Management App with Twig{% endblock %}</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    {% block header %}{% endblock %}
+    
+    {% block content %}{% endblock %}
+    
+    {% block footer %}{% endblock %}
+    
+    <div id="toast-container" class="fixed top-20 right-4 z-50 space-y-2"></div>
+    
+    {% block scripts %}
+        <script type="module" src="./js/main.js"></script>
+    {% endblock %}
+</body>
+</html>
+

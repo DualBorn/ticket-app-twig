@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - TicketApp</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body class="min-h-screen bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="./dashboard.html" class="text-2xl font-bold text-primary-600">TicketApp</a>
+                <div class="flex items-center space-x-4">
+                    <span id="userName" class="text-gray-700"></span>
+                    <a href="./tickets.html" class="text-gray-600 hover:text-primary-600">Manage Tickets</a>
+                    <button onclick="handleLogout()" class="btn-secondary">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Page Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
+            <p class="text-gray-600">Overview of your ticket management system</p>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="card hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mr-4">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-600">Total Tickets</p>
+                        <p id="stats-total" class="text-2xl font-bold text-gray-900">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-success-100 rounded-lg flex items-center justify-center mr-4">
+                        <svg class="w-6 h-6 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-600">Open</p>
+                        <p id="stats-open" class="text-2xl font-bold text-success-600">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-warning-100 rounded-lg flex items-center justify-center mr-4">
+                        <svg class="w-6 h-6 text-warning-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-600">In Progress</p>
+                        <p id="stats-inProgress" class="text-2xl font-bold text-warning-600">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mr-4">
+                        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-600">Closed</p>
+                        <p id="stats-closed" class="text-2xl font-bold text-gray-600">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions and Activity -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="card">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
+                <div class="space-y-4">
+                    <a href="./tickets.html" class="flex items-center p-4 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors">
+                        <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-900">Create New Ticket</p>
+                            <p class="text-sm text-gray-600">Start tracking a new issue</p>
+                        </div>
+                    </a>
+                    <a href="./tickets.html" class="flex items-center p-4 bg-success-50 rounded-lg hover:bg-success-100 transition-colors">
+                        <div class="w-10 h-10 bg-success-100 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-5 h-5 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-900">View All Tickets</p>
+                            <p class="text-sm text-gray-600">Manage existing tickets</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Recent Activity</h3>
+                <div class="space-y-4">
+                    <div id="emptyState" class="text-center py-8 hidden">
+                        <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <p class="mt-2 text-sm text-gray-500">No tickets created yet</p>
+                        <a href="./tickets.html" class="mt-2 inline-block btn-primary">Create your first ticket</a>
+                    </div>
+                    <div id="activityContent" class="text-sm text-gray-600 hidden">
+                        <p id="activity-total"></p>
+                        <p id="activity-open"></p>
+                        <p id="activity-inProgress"></p>
+                        <p id="activity-closed"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container" class="fixed top-20 right-4 z-50 space-y-2"></div>
+    <script type="module" src="./js/dashboard.js"></script>
+    <script>function handleLogout(){auth.logout();setTimeout(()=>window.location.href='./index.html',100)}</script>
+</body>
+</html>
+
