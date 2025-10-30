@@ -1,5 +1,5 @@
 import { auth, requireAuth } from './auth.js';
-import { tickets } from './tickets.js';
+import { tickets } from './ticketStore.js';
 import { showToast } from './toast.js';
 
 if (!requireAuth()) return;

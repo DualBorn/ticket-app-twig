@@ -1,5 +1,5 @@
 import { auth, requireAuth } from './auth.js';
-import { tickets, getStatusColor, getPriorityColor } from './tickets.js';
+import { tickets, getStatusColor, getPriorityColor } from './ticketStore.js';
 import { showToast } from './toast.js';
 
 if (!requireAuth()) return;
